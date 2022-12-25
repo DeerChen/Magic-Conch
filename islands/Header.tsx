@@ -6,7 +6,7 @@ import Title from "../components/Title.tsx";
 
 /**
  * Header头部
- * 1. flex justify-between items-center mb-4 px-2 py-1 sm:(px-4 py-2) md:(px-8 py-4)
+ * 1. flex justify-between items-center mb-2 px-2 py-1 sm:(px-4 py-2) md:(px-8 py-4)
  * 2. 0px 4px 8px #bebebe
  *
  * @return {*}  {JSX.Element}
@@ -17,7 +17,7 @@ const Header: () => JSX.Element = (): JSX.Element => {
   };
 
   return (
-    <div class="flex justify-between items-center mb-4 px-2 py-1 sm:(px-4 py-2) md:(px-8 py-4) shadow-neu-bottom">
+    <div class="flex justify-between items-center mb-2 px-2 py-1 sm:(px-4 py-2) md:(px-8 py-4) shadow-neu-bottom">
       <Title
         logo="/logo.svg"
         mainTitle="Chatbot"

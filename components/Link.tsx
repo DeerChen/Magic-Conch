@@ -11,11 +11,11 @@ import { ILinkProps } from "../intf/props.ts";
 const Link: (props: ILinkProps) => JSX.Element = (
   props: ILinkProps,
 ): JSX.Element => {
-  const { class: _class, href, children } = props;
+  const { href, children } = props;
 
   return (
     <a
-      class={`rounded m-1 p-1 text-green-400 shadow-neu-inner-sm text-center ${_class}`}
+      class={"rounded m-1 p-1 text-green-400 shadow-neu-inner-sm text-center"}
       href={href}
       target="_blank"
     >

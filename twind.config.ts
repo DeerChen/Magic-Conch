@@ -20,6 +20,11 @@ export default {
       "xs": "320px",
       "fit": "fit-content",
     },
+    maxHeight: {
+      "2/3": "66.666667vh",
+    },
   },
-  plugins: {},
+  plugins: {
+    "flex-center": "flex justify-center items-center",
+  },
 } as Options;

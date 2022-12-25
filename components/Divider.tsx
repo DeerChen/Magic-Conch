@@ -3,8 +3,8 @@ import { IDividerProps } from "../intf/props.ts";
 
 /**
  * Divider分割线
- * 1. flex justify-center items-center m-1 {inline}
- * 2. 分割线：rounded inline border border-light-gray {w-full h-0} {w-0 h-full}
+ * 1. flex-center m-1 {inline}
+ * 2. 分割线：rounded inline border border-light-gray {w-full h-0 | w-0 h-full}
  * 3. 文本：inline min-w-fit
  *
  * @param {IDividerProps} props
@@ -24,7 +24,7 @@ const Divider: (props: IDividerProps) => JSX.Element = (
 
   return (
     <div
-      class={`flex justify-center items-center m-1 ${className}`}
+      class={`flex-center m-1 ${className}`}
     >
       <div
         class={`rounded inline border border-light-gray ${lineClass}`}

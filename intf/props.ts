@@ -36,8 +36,22 @@ type IDividerProps = {
   children?: string | JSX.Element; // 中间文本
 };
 
+type IAvatarProps = {
+  src: string; // 图片资源路径
+  circle?: boolean; // 是否圆形
+  size?: "smaller" | "normal" | "larger"; // 尺寸
+};
+
+type ICardProps = {
+  children: string | JSX.Element; // 子组件
+  avatar?: string; // 头像
+  right?: boolean; // 右侧悬挂
+};
+
 export type {
+  IAvatarProps,
   IBtnProps,
+  ICardProps,
   ICopyrightProps,
   IDividerProps,
   IIconProps,

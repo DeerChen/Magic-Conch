@@ -4,7 +4,7 @@ import Icon from "./Icon.tsx";
 
 /**
  * Button按钮
- * 1. rounded m-1 px-1 shadow-neu hover:bg-black disabled:(opacity-50 cursor-not-allowed) {active:shadow-neu-inner}
+ * 1. rounded m-2 px-1 shadow-neu hover:bg-black disabled:(opacity-50 cursor-not-allowed) {active:shadow-neu-inner}
  * 2. icon图标：w-6
  * 3. text文字：m-1 align-middle {hidden sm:inline-block}
  *
@@ -33,7 +33,7 @@ const Button: (
     <button
       disabled={disabled}
       onClick={onClick}
-      class={`rounded m-1 px-1 shadow-neu hover:bg-black disabled:(opacity-50 cursor-not-allowed) ${className}`}
+      class={`rounded m-2 px-1 shadow-neu hover:bg-black disabled:(opacity-50 cursor-not-allowed) ${className}`}
     >
       {typeof icon === "string"
         ? <Icon size={24} src={icon as string} />

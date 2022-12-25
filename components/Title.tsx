@@ -4,7 +4,7 @@ import Icon from "./Icon.tsx";
 
 /**
  * Title题头
- * 1. m-1 px-1 flex justify-center items-center
+ * 1. m-1 px-1 flex-center
  * 2. Icon图标：w-12
  * 3. 标题：{hidden sm:block}
  * 4. mainTitle主标题：font-bold text-xl
@@ -30,7 +30,7 @@ const Title: (props: ITitleProps) => JSX.Element = (
   }
 
   return (
-    <div class="m-1 px-1 flex justify-center items-center">
+    <div class="m-1 px-1 flex-center">
       {logo ? <Icon src={logo} size={48} /> : ""}
 
       <div class={`${titleClass}`}>

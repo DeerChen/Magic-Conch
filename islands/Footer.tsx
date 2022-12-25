@@ -9,7 +9,7 @@ import { IMenuItem, ISubItem } from "../intf/menu.ts";
 
 /**
  * Footer页脚
- * 1. text-xs mt-4 px-8 py-4 gap-0 flex flex-col md:(flex-row gap-8)
+ * 1. text-xs mt-2 px-8 py-4 gap-0 flex flex-col md:(flex-row gap-8)
  * 3. 项目名及版权：m-1 flex-1
  * 4. 链接目录：mt-4
  * 5. 目录名：font-bold
@@ -20,7 +20,7 @@ import { IMenuItem, ISubItem } from "../intf/menu.ts";
  */
 const Footer: () => JSX.Element = (): JSX.Element => {
   return (
-    <div class="text-xs mt-4 px-8 py-4 gap-0 flex flex-col md:(flex-row gap-8) shadow-neu-top">
+    <div class="text-xs mt-2 px-8 py-4 gap-0 flex flex-col md:(flex-row gap-8) shadow-neu-top">
       <div class="m-1 flex-1">
         <Title
           logo="/logo.svg"
