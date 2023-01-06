@@ -11,9 +11,9 @@ import { IIconProps } from "../intf/props.ts";
 const Icon: (props: IIconProps) => JSX.Element = (
   props: IIconProps,
 ): JSX.Element => {
-  const { src, size } = props;
+  const { class: _class, src, size } = props;
 
-  return <img class="m-1 inline" width={size} src={src} />;
+  return <img class={`m-1 inline ${_class}`} width={size} src={src} />;
 };
 
 export default Icon;

@@ -1,6 +1,7 @@
 import { JSX } from "preact";
 
 type IBtnProps = {
+  class?: string; // 类名
   icon?: string | JSX.Element; // 图标
   text?: string; // 文字
   disabled?: boolean; // 禁用
@@ -8,6 +9,7 @@ type IBtnProps = {
 };
 
 type IIconProps = {
+  class?: string; // 类名
   src: string; // 图片资源路径
   size?: string | number; // 尺寸
 };
@@ -18,6 +20,7 @@ type ILinkProps = {
 };
 
 type ITitleProps = {
+  class?: string; // 类名
   logo?: string; // logo
   mainTitle: string | JSX.Element; // 主标题
   subTitle?: string | JSX.Element; // 副标题

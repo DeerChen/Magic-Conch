@@ -3,7 +3,7 @@ import { IDividerProps } from "../intf/props.ts";
 
 /**
  * Divider分割线
- * 1. flex-center m-1 {inline}
+ * 1. flex-center m-1 {inline-block}
  * 2. 分割线：rounded inline border border-light-gray {w-full h-0 | w-0 h-full}
  * 3. 文本：inline min-w-fit
  *
@@ -18,7 +18,7 @@ const Divider: (props: IDividerProps) => JSX.Element = (
   let className = "";
   let lineClass = "w-full h-0";
   if (vertical) {
-    className = "inline";
+    className = "inline-block";
     lineClass = "w-0 h-full";
   }
 

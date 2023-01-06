@@ -4,8 +4,8 @@ import { ICardProps } from "../intf/props.ts";
 
 /**
  * Convo对话
- * 1. mb-1 py-4 shadow-neu-inner max-h-2/3 rounded overflow-scroll
- *    {gridArea: "topHalf"}
+ * 1. mb-1 py-4 shadow-neu-inner max-h-11/12 rounded overflow-scroll
+ *    {gridArea: "topHalf", minHeight: "50vh"}
  *
  * @return {*}  {JSX.Element}
  */
@@ -14,9 +14,10 @@ const Convo: () => JSX.Element = (): JSX.Element => {
 
   return (
     <div
-      class="mb-1 py-4 shadow-neu-inner max-h-2/3 rounded overflow-scroll"
+      class="mb-1 py-4 shadow-neu-inner max-h-11/12 rounded overflow-scroll"
       style={{
         gridArea: "topHalf",
+        minHeight: "50vh",
       }}
     >
       {convoArr.map((c: ICardProps): JSX.Element => (

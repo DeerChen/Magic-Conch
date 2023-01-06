@@ -16,7 +16,7 @@ const Button: (
 ) => JSX.Element = (
   props: IBtnProps,
 ): JSX.Element => {
-  const { icon, text, disabled, onClick } = props;
+  const { class: _class, icon, text, disabled, onClick } = props;
 
   let className = "active:shadow-neu-inner";
   let textClass = "";
@@ -33,7 +33,7 @@ const Button: (
     <button
       disabled={disabled}
       onClick={onClick}
-      class={`rounded m-2 px-1 shadow-neu hover:bg-black disabled:(opacity-50 cursor-not-allowed) ${className}`}
+      class={`rounded m-2 px-1 shadow-neu hover:bg-black disabled:(opacity-50 cursor-not-allowed) ${className} ${_class}`}
     >
       {typeof icon === "string"
         ? <Icon size={24} src={icon as string} />

@@ -16,7 +16,7 @@ import Icon from "./Icon.tsx";
 const Title: (props: ITitleProps) => JSX.Element = (
   props: ITitleProps,
 ): JSX.Element => {
-  const { logo, mainTitle, subTitle, resVisible } = props;
+  const { class: _class, logo, mainTitle, subTitle, resVisible } = props;
 
   let titleClass = "";
   let subTitleClass = "";
@@ -30,7 +30,7 @@ const Title: (props: ITitleProps) => JSX.Element = (
   }
 
   return (
-    <div class="m-1 px-1 flex-center">
+    <div class={`m-1 px-1 flex-center ${_class}`}>
       {logo ? <Icon src={logo} size={48} /> : ""}
 
       <div class={`${titleClass}`}>
