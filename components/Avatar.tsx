@@ -4,7 +4,7 @@ import { IAvatarProps } from "../intf/props.ts";
 /**
  * Avatar头像
  * 1. 外层：inline-block m-2 p-0.5 shadow-neu {rounded-full | rounded} {w-8 h-8 | w-10 h-10 | w-12 h-12}
- * 2. 里层：p-0.5 flex-center shadow-neu-inner-sm {rounded-full | rounded} {w-8 h-8 | w-10 h-10 | w-12 h-12}
+ * 2. 里层：p-0.5 flex-center shadow-neu-inner-sm overflow-hidden {rounded-full | rounded} {w-8 h-8 | w-10 h-10 | w-12 h-12}
  *
  * @param {IAvatarProps} props
  * @return {*}  {JSX.Element}
@@ -40,7 +40,7 @@ const Avatar: (props: IAvatarProps) => JSX.Element = (
       class={`inline-block m-2 p-0.5 shadow-neu ${className}`}
     >
       <div
-        class={`p-0.5 flex-center shadow-neu-inner-sm ${innerClass}`}
+        class={`p-0.5 flex-center shadow-neu-inner-sm overflow-hidden ${innerClass}`}
       >
         <img src={src} />
       </div>

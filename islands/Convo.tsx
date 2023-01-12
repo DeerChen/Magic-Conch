@@ -1,5 +1,7 @@
 import { JSX } from "preact";
+import { StateUpdater, useContext } from "preact/hooks";
 import Card from "../components/Card.tsx";
+import convoArrCtx from "../hooks/ctx/convoArrCtx.ts";
 import { ICardProps } from "../intf/props.ts";
 
 /**
@@ -10,23 +12,28 @@ import { ICardProps } from "../intf/props.ts";
  * @return {*}  {JSX.Element}
  */
 const Convo: () => JSX.Element = (): JSX.Element => {
-  const convoArr: Array<ICardProps> = [];
+    const convoCtx: {
+        convoArr: Array<ICardProps>;
+        setConvoArr: StateUpdater<Array<ICardProps>>;
+    } = useContext(convoArrCtx);
 
-  return (
-    <div
-      class="mb-1 py-4 shadow-neu-inner max-h-11/12 rounded overflow-scroll"
-      style={{
-        gridArea: "topHalf",
-        minHeight: "50vh",
-      }}
-    >
-      {convoArr.map((c: ICardProps): JSX.Element => (
-        <Card right={c.right} avatar={c.avatar}>
-          {c.children}
-        </Card>
-      ))}
-    </div>
-  );
+    return (
+        <div
+            class="mb-1 py-4 shadow-neu-inner max-h-11/12 rounded overflow-scroll"
+            style={{
+                gridArea: "topHalf",
+                minHeight: "50vh",
+            }}
+        >
+            {convoCtx.convoArr.map(
+                (c: ICardProps): JSX.Element => (
+                    <Card right={c.right} avatar={c.avatar}>
+                        {c.children}
+                    </Card>
+                )
+            )}
+        </div>
+    );
 };
 
 export default Convo;

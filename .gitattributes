@@ -1,1 +1,1 @@
-constants/index.ts filter=token_filter
+constants/settings.ts filter=api_key_filter

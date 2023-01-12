@@ -4,7 +4,7 @@ import InputRange from "../components/InputRange.tsx";
 import ModelSelect from "../components/ModelSelect.tsx";
 import Title from "../components/Title.tsx";
 import siderStatusCtx from "../hooks/ctx/siderStatusCtx.ts";
-import TokenInput from "./TokenInput.tsx";
+import KeyInput from "./KeyInput.tsx";
 
 const Sider: () => JSX.Element = (): JSX.Element => {
   const siderCtx: {
@@ -24,7 +24,7 @@ const Sider: () => JSX.Element = (): JSX.Element => {
     >
       <Title class="m-2" mainTitle="设置" />
 
-      <TokenInput />
+      <KeyInput />
       <InputRange />
       <ModelSelect />
     </div>

@@ -49,6 +49,7 @@ type ICardProps = {
   children: string | JSX.Element; // 子组件
   avatar?: string; // 头像
   right?: boolean; // 右侧悬挂
+  noAvatar?: boolean; // 无头像
 };
 
 export type {

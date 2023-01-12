@@ -8,12 +8,12 @@ import Layout from "../islands/Layout.tsx";
  * @return {*}  {JSX.Element}
  */
 const Index: () => JSX.Element = (): JSX.Element => (
-  <>
-    <Head>
-      <title>Chatbot</title>
-    </Head>
-    <Layout />
-  </>
+    <>
+        <Head>
+            <title>神奇海螺 🐚</title>
+        </Head>
+        <Layout />
+    </>
 );
 
 export default Index;
