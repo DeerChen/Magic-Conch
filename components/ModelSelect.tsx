@@ -18,9 +18,7 @@ const ModelSelect: () => JSX.Element = (): JSX.Element => {
         setSettings: (action: Partial<ISettings>) => void;
     } = useContext(settingsCtx);
 
-    const selectOpt: (
-        e: JSX.TargetedEvent<HTMLSelectElement, Event>
-    ) => void = (e: JSX.TargetedEvent<HTMLSelectElement, Event>): void => {
+    const selectOpt: (e: Event) => void = (e: Event): void => {
         const model: string = e.target!.value;
 
         setCtx.setSettings({
@@ -83,8 +81,14 @@ const ModelSelect: () => JSX.Element = (): JSX.Element => {
                 </optgroup>
             </select>
 
-            <div class="text-left mt-1 p-2 rounded shadow-sider-inner">
-                {MODEL[setCtx.settings.model].desc}
+            <div class="text-left mt-1 p-2 rounded shadow-sider-inner ">
+                <ul class="list-disc ml-6">
+                    <li>模型描述：{MODEL[setCtx.settings.model].desc}</li>
+                    <li>
+                        最大支持字节数：
+                        {MODEL[setCtx.settings.model]["max-tokens"]}
+                    </li>
+                </ul>
             </div>
         </div>
     );

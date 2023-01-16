@@ -2,9 +2,10 @@ import { JSX } from "preact";
 import { useContext } from "preact/hooks";
 import Button from "../components/Button.tsx";
 import Input from "../components/Input.tsx";
-import { API_KEY } from "../constants/settings.ts";
+import { PasswdActionType } from "../constants/passwd.ts";
+import passwdDialogCtx from "../hooks/ctx/passwdDialogCtx.ts";
 import settingsCtx from "../hooks/ctx/settingsCtx.ts";
-import { ISettings } from "../intf/context.ts";
+import { IPasswd, ISettings } from "../intf/context.ts";
 
 /**
  * KeyInput密钥输入框
@@ -21,9 +22,7 @@ const KeyInput: () => JSX.Element = (): JSX.Element => {
         setSettings: (action: Partial<ISettings>) => void;
     } = useContext(settingsCtx);
 
-    const inputKey: (e: JSX.TargetedEvent<HTMLInputElement, Event>) => void = (
-        e: JSX.TargetedEvent<HTMLInputElement, Event>
-    ): void => {
+    const inputKey: (e: Event) => void = (e: Event): void => {
         setCtx.setSettings({
             apiKey: e.target!.value,
         });
@@ -31,12 +30,18 @@ const KeyInput: () => JSX.Element = (): JSX.Element => {
         localStorage.setItem("apiKey", e.target!.value);
     };
 
-    const useBuiltInKey: () => void = (): void => {
-        setCtx.setSettings({
-            apiKey: API_KEY,
-        });
+    const passwdCtx: {
+        passwdDialog: IPasswd;
+        setPasswdDialog: (action: {
+            type: PasswdActionType;
+            payload?: Partial<IPasswd> | undefined;
+        }) => void;
+    } = useContext(passwdDialogCtx);
 
-        localStorage.setItem("apiKey", API_KEY);
+    const useBuiltInKey: () => void = (): void => {
+        passwdCtx.setPasswdDialog({
+            type: PasswdActionType.Popup,
+        });
     };
 
     const clearKey: () => void = (): void => {

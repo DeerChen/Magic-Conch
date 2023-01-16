@@ -1,6 +1,7 @@
 enum ConvoActionType {
-  Say = "ADD",
-  Refresh = "CLEAR",
+    Say = "ADD",
+    Refresh = "CLEAR",
+    Pop = "pop",
 }
 
 export { ConvoActionType };

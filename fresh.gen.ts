@@ -4,6 +4,8 @@
 
 import config from "./deno.json" assert { type: "json" };
 import * as $0 from "./routes/index.tsx";
+import * as $1 from "./routes/ip/_middleware.ts";
+import * as $2 from "./routes/ip/index.tsx";
 import * as $$0 from "./islands/Content.tsx";
 import * as $$1 from "./islands/Convo.tsx";
 import * as $$2 from "./islands/Footer.tsx";
@@ -16,6 +18,8 @@ import * as $$7 from "./islands/TypingArea.tsx";
 const manifest = {
   routes: {
     "./routes/index.tsx": $0,
+    "./routes/ip/_middleware.ts": $1,
+    "./routes/ip/index.tsx": $2,
   },
   islands: {
     "./islands/Content.tsx": $$0,

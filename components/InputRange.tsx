@@ -17,9 +17,7 @@ const InputRange: () => JSX.Element = (): JSX.Element => {
         setSettings: (action: Partial<ISettings>) => void;
     } = useContext(settingsCtx);
 
-    const handleSlide: (
-        e: JSX.TargetedEvent<HTMLInputElement, Event>
-    ) => void = (e: JSX.TargetedEvent<HTMLInputElement, Event>): void => {
+    const handleSlide: (e: Event) => void = (e: Event): void => {
         setCtx.setSettings({
             temp: parseFloat(e.target!.value),
         });

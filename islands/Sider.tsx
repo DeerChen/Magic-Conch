@@ -7,28 +7,26 @@ import siderStatusCtx from "../hooks/ctx/siderStatusCtx.ts";
 import KeyInput from "./KeyInput.tsx";
 
 const Sider: () => JSX.Element = (): JSX.Element => {
-  const siderCtx: {
-    siderStatus: boolean;
-    setSiderStatus: StateUpdater<boolean>;
-  } = useContext(siderStatusCtx);
+    const siderCtx: {
+        siderStatus: boolean;
+        setSiderStatus: StateUpdater<boolean>;
+    } = useContext(siderStatusCtx);
 
-  let className = "w-0";
+    let className = "w-0";
 
-  if (siderCtx.siderStatus) {
-    className = "w-auto";
-  }
+    if (siderCtx.siderStatus) {
+        className = "w-auto";
+    }
 
-  return (
-    <div
-      class={`bg-sider transition-all flex-col ${className}`}
-    >
-      <Title class="m-2" mainTitle="设置" />
+    return (
+        <div class={`bg-sider transition-all flex-col ${className}`}>
+            <Title class="m-2" mainTitle="设置" />
 
-      <KeyInput />
-      <InputRange />
-      <ModelSelect />
-    </div>
-  );
+            <KeyInput />
+            <InputRange />
+            <ModelSelect />
+        </div>
+    );
 };
 
 export default Sider;
