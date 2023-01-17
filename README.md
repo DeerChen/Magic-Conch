@@ -18,6 +18,13 @@
 4. 支持切换 model 和 temperature 参数
 5. 支持内置密钥，方便个人使用
 
+## Installation
+
+```bash
+docker build -f Dockerfile -t magic-conch . --no-cache
+docker run -d -p 8000:8000 --restart=always --name "magic-conch" magic-conch
+```
+
 ## Usage
 
 > 密钥需自行前往[OpenAI 后台](https://beta.openai.com/account/api-keys)注册申请，密码自定，用于保护内置密钥。

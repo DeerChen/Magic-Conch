@@ -1,4 +1,4 @@
-import IconRefresh from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/refresh.tsx";
+import IconRefresh from "icons/tsx/refresh.tsx";
 import { JSX } from "preact";
 import { StateUpdater, useContext } from "preact/hooks";
 import Button from "../components/Button.tsx";
