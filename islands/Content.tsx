@@ -1,5 +1,5 @@
 import { JSX } from "preact";
-import SiderBtn from "../components/siderBtn.tsx";
+import SiderBtn from "../components/SiderBtn.tsx";
 import Convo from "./Convo.tsx";
 import TypingArea from "./TypingArea.tsx";
 
