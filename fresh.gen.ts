@@ -4,32 +4,22 @@
 
 import config from "./deno.json" assert { type: "json" };
 import * as $0 from "./routes/index.tsx";
-import * as $1 from "./routes/ip/_middleware.ts";
-import * as $2 from "./routes/ip/index.tsx";
 import * as $$0 from "./islands/Content.tsx";
-import * as $$1 from "./islands/Convo.tsx";
-import * as $$2 from "./islands/Footer.tsx";
-import * as $$3 from "./islands/Header.tsx";
-import * as $$4 from "./islands/KeyInput.tsx";
-import * as $$5 from "./islands/Layout.tsx";
-import * as $$6 from "./islands/Sider.tsx";
-import * as $$7 from "./islands/TypingArea.tsx";
+import * as $$1 from "./islands/Footer.tsx";
+import * as $$2 from "./islands/Header.tsx";
+import * as $$3 from "./islands/Layout.tsx";
+import * as $$4 from "./islands/Sider.tsx";
 
 const manifest = {
   routes: {
     "./routes/index.tsx": $0,
-    "./routes/ip/_middleware.ts": $1,
-    "./routes/ip/index.tsx": $2,
   },
   islands: {
     "./islands/Content.tsx": $$0,
-    "./islands/Convo.tsx": $$1,
-    "./islands/Footer.tsx": $$2,
-    "./islands/Header.tsx": $$3,
-    "./islands/KeyInput.tsx": $$4,
-    "./islands/Layout.tsx": $$5,
-    "./islands/Sider.tsx": $$6,
-    "./islands/TypingArea.tsx": $$7,
+    "./islands/Footer.tsx": $$1,
+    "./islands/Header.tsx": $$2,
+    "./islands/Layout.tsx": $$3,
+    "./islands/Sider.tsx": $$4,
   },
   baseUrl: import.meta.url,
   config,

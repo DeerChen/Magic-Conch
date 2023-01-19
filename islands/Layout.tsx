@@ -19,11 +19,12 @@ import Sider from "./Sider.tsx";
 
 /**
  * Layout布局
- * 1. bg-neu min-w-fit min-h-screen grid
- *    {gridTemplateRows: "auto 1fr auto"}
  *
  * @param {ILayoutProps} props
  * @return {*}  {JSX.Element}
+ * 
+ * @example
+   <Layout apiKey="内置密钥" encryptedPasswd="密码" />
  */
 const Layout: (props: ILayoutProps) => JSX.Element = (
     props: ILayoutProps

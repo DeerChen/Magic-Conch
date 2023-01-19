@@ -9,12 +9,11 @@ import { IPasswd, ISettings } from "../intf/context.ts";
 
 /**
  * KeyInput密钥输入框
- * 1. m-2 p-2 w-60 rounded shadow-sider-inner text-center
- * 2. mb-1 shadow-sider-inner bg-sider
- * 3. flex-evenly mt-1
- * 4. shadow-sider active:shadow-sider-inner
  *
  * @return {*}  {JSX.Element}
+ * 
+ * @example
+   <KeyInput />
  */
 const KeyInput: () => JSX.Element = (): JSX.Element => {
     const setCtx: {
@@ -53,7 +52,7 @@ const KeyInput: () => JSX.Element = (): JSX.Element => {
     };
 
     return (
-        <div class="m-2 p-2 w-60 rounded shadow-sider-inner text-center">
+        <div class="m-2 p-2 rounded shadow-sider-inner text-center">
             <Input
                 class="mb-1 shadow-sider-inner bg-sider"
                 type="password"

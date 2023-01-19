@@ -11,6 +11,19 @@ import Button from "./Button.tsx";
 import Input from "./Input.tsx";
 import Modal from "./Modal.tsx";
 
+/**
+ * PasswdInput密码输入框
+ *
+ * @param {IPasswdInputProps} props
+ * @return {*}  {JSX.Element}
+ *
+ * @example
+   <PasswdInput
+     open
+     apiKey="内置密钥"
+     encryptedPasswd="密码"
+   />
+ */
 const PasswdInput: (props: IPasswdInputProps) => JSX.Element = (
     props: IPasswdInputProps
 ): JSX.Element => {

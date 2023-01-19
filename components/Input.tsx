@@ -2,11 +2,12 @@ import { JSX } from "preact";
 
 /**
  * Input输入框
- * 1. m-1 px-2 py-1 rounded shadow-neu-inner bg-neu focus:border-2
- *    {outline: "2px solid transparent", borderColor: "#34d399"}
  *
  * @param {JSX.HTMLAttributes<HTMLInputElement>} props
  * @return {*}  {JSX.Element}
+ * 
+ * @example
+   <Input />
  */
 const Input: (props: JSX.HTMLAttributes<HTMLInputElement>) => JSX.Element = (
     props: JSX.HTMLAttributes<HTMLInputElement>

@@ -1,18 +1,15 @@
 import { JSX } from "preact";
+import Convo from "../components/Convo.tsx";
 import SiderBtn from "../components/SiderBtn.tsx";
-import Convo from "./Convo.tsx";
-import TypingArea from "./TypingArea.tsx";
+import TypingArea from "../components/TypingArea.tsx";
 
 /**
  * Content主体内容
- * 1. grid p-2
- *    {gridTemplateRows: "auto 1fr", gridTemplateAreas: "'leftHalf' 'rightHalf'"}
- * 2. 左侧边栏按钮：flex-center
- * 3. 对话窗口：flex-center
- * 4. rounded shadow-neu w-full max-w-screen-md p-2 grid
- *    {gridTemplateRows: "1fr auto", gridTemplateAreas: "'topHalf' 'bottomHalf'"}
  *
  * @return {*}  {JSX.Element}
+ * 
+ * @example
+   <Content />
  */
 const Content: () => JSX.Element = (): JSX.Element => {
     return (

@@ -5,9 +5,11 @@ import siderStatusCtx from "../hooks/ctx/siderStatusCtx.ts";
 
 /**
  * SiderBtn左侧边栏按钮
- * 1. mr-2 cursor-pointer hover:animate-pulse hidden md:block
  *
  * @return {*}  {JSX.Element}
+ * 
+ * @example
+   <SiderBtn />
  */
 const SiderBtn: () => JSX.Element = (): JSX.Element => {
     const siderCtx: {

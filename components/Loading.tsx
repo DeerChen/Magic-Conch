@@ -1,7 +1,15 @@
 import { JSX } from "preact";
 
-const Loading: () => JSX.Element = (): JSX.Element => {
-    return <div class="animate-bounce">...</div>;
-};
+/**
+ * Loading加载中
+ *
+ * @return {*}  {JSX.Element}
+ * 
+ * @example
+   <Loading />
+ */
+const Loading: () => JSX.Element = (): JSX.Element => (
+    <div class="animate-bounce">...</div>
+);
 
 export default Loading;

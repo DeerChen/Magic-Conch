@@ -4,13 +4,20 @@ import Avatar from "./Avatar.tsx";
 
 /**
  * Card卡片
- * 1. my-0.5 mx-2 flex clear-both max-w-xl {float-right | float-left}
- * 2. children子组件：m-2 p-1 rounded shadow-neu max-w-screen-sm
- *                  p-2 rounded shadow-neu-inner-sm break-words whitespace-pre-wrap min-h-full
- * 3. avatar头像：smaller
  *
  * @param {ICardProps} props
  * @return {*}  {JSX.Element}
+ * 
+ * @example
+   <Card 
+     avatar="/logo.svg",
+     style={{
+       background: "#fff"
+     }}
+     right
+   >
+     卡片
+   </Card>
  */
 const Card: (props: ICardProps) => JSX.Element = (
     props: ICardProps

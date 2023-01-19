@@ -5,11 +5,11 @@ import { ISettings } from "../intf/context.ts";
 
 /**
  * InputRange程度选择
- * 1. m-2 p-2 w-60 rounded shadow-sider-inner text-center
- * 2. flex-sper
- * 3. cursor-pointer w-48
  *
  * @return {*}  {JSX.Element}
+ * 
+ * @example
+   <InputRange />
  */
 const InputRange: () => JSX.Element = (): JSX.Element => {
     const setCtx: {

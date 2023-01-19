@@ -2,6 +2,15 @@ import { JSX } from "preact";
 import { IModalProps } from "../intf/props.ts";
 import Card from "./Card.tsx";
 
+/**
+ * Modal模态框
+ *
+ * @param {IModalProps} props
+ * @return {*}  {JSX.Element}
+ * 
+ * @example
+   <Modal open>模态框</Modal>
+ */
 const Modal: (props: IModalProps) => JSX.Element = (
     props: IModalProps
 ): JSX.Element => {

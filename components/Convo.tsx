@@ -6,10 +6,11 @@ import { ICardProps } from "../intf/props.ts";
 
 /**
  * Convo对话
- * 1. mb-1 py-4 shadow-neu-inner max-h-17/24 rounded overflow-scroll
- *    {gridArea: "topHalf", minHeight: "50vh"}
  *
  * @return {*}  {JSX.Element}
+ * 
+ * @example
+   <Convo />
  */
 const Convo: () => JSX.Element = (): JSX.Element => {
     const convoCtx: {

@@ -9,14 +9,11 @@ import { IMenuItem, ISubItem } from "../intf/menu.ts";
 
 /**
  * Footer页脚
- * 1. text-xs mt-2 px-8 py-4 gap-0 flex flex-col md:(flex-row gap-8)
- * 3. 项目名及版权：m-1 flex-1
- * 4. 链接目录：mt-4
- * 5. 目录名：font-bold
- * 6. 子项名：list-circle
- * 7. 子项链接：m-3
  *
  * @return {*}  {JSX.Element}
+ * 
+ * @example
+   <Footer />
  */
 const Footer: () => JSX.Element = (): JSX.Element => {
     return (

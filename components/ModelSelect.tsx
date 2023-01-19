@@ -6,11 +6,11 @@ import { ISettings } from "../intf/context.ts";
 
 /**
  * ModelSelect模型选择
- * 1. m-2 p-2 w-60 rounded shadow-sider-inner text-center
- * 2. m-1 bg-sider
- * 3. text-left mt-1 p-2 rounded shadow-sider-inner
  *
  * @return {*}  {JSX.Element}
+ * 
+ * @example
+   <ModelSelect />
  */
 const ModelSelect: () => JSX.Element = (): JSX.Element => {
     const setCtx: {

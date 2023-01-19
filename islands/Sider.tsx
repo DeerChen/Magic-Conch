@@ -1,11 +1,19 @@
 import { JSX } from "preact";
 import { StateUpdater, useContext } from "preact/hooks";
 import InputRange from "../components/InputRange.tsx";
+import KeyInput from "../components/KeyInput.tsx";
 import ModelSelect from "../components/ModelSelect.tsx";
 import Title from "../components/Title.tsx";
 import siderStatusCtx from "../hooks/ctx/siderStatusCtx.ts";
-import KeyInput from "./KeyInput.tsx";
 
+/**
+ * Sider侧边栏
+ *
+ * @return {*}  {JSX.Element}
+ * 
+ * @example
+   <Sider />
+ */
 const Sider: () => JSX.Element = (): JSX.Element => {
     const siderCtx: {
         siderStatus: boolean;

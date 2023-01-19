@@ -11,11 +11,11 @@ import { ICardProps } from "../intf/props.ts";
 
 /**
  * Header头部
- * 1. flex-sper mb-2 px-2 py-1 sm:(px-4 py-2) md:(px-8 py-4)
- * 2. cursor-pointer
- * 3. 0px 4px 8px #bebebe
  *
  * @return {*}  {JSX.Element}
+ * 
+ * @example
+   <Header />
  */
 const Header: () => JSX.Element = (): JSX.Element => {
     const convoCtx: {

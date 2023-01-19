@@ -10,6 +10,14 @@ import Link from "./Link.tsx";
  *
  * @param {ICopyrightProps} props
  * @return {*}  {JSX.Element}
+ * 
+ * @example
+   <Copyright
+     start={2022}
+     author="Senkita"
+     href="https://github.com/Senkita"
+     isGithub
+   />
  */
 const Copyright: (props: ICopyrightProps) => JSX.Element = (
     props: ICopyrightProps

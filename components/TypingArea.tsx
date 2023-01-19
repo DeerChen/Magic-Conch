@@ -21,11 +21,11 @@ import tokenCalc from "../utils/tokenCalc.ts";
 
 /**
  * TypingArea输入区
- * 1. mt-1 flex-center
- *    {gridArea: "bottomHalf"}
- * 2. 输入框：w-2/3
  *
  * @return {*}  {JSX.Element}
+ * 
+ * @example
+   <TypingArea />
  */
 const TypingArea: () => JSX.Element = (): JSX.Element => {
     const convoCtx: {
@@ -160,7 +160,7 @@ const TypingArea: () => JSX.Element = (): JSX.Element => {
                             avatar: "/logo.svg",
                             right: false,
                             children: res.choices[0].text.replace(
-                                /[A:|B:]/g,
+                                /[A:][B:]/g,
                                 ""
                             ),
                         },
