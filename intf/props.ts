@@ -63,6 +63,10 @@ type IPasswdInputProps = {
     encryptedPasswd: string; // 加密过的密码散列值
 };
 
+type IWrongPopupProps = {
+    open: boolean; // 开启状态
+};
+
 type ILayoutProps = {
     apiKey: string; // API密钥
     encryptedPasswd: string; // 加密过的密码散列值
@@ -80,4 +84,5 @@ export type {
     IModalProps,
     IPasswdInputProps,
     ITitleProps,
+    IWrongPopupProps,
 };

@@ -26,7 +26,7 @@ const InputRange: () => JSX.Element = (): JSX.Element => {
     };
 
     return (
-        <div class="m-2 p-2 w-60 rounded shadow-sider-inner text-center">
+        <div class="m-2 p-2 rounded shadow-sider-inner text-center">
             <div class="flex-sper">
                 <div>中规中矩</div>
                 <div>天马行空</div>

@@ -1,15 +1,16 @@
 import { JSX } from "preact";
 import { useReducer, useState } from "preact/hooks";
 import PasswdInput from "../components/PasswdInput.tsx";
-import { initPasswdState } from "../constants/passwd.ts";
+import WrongPopup from "../components/WrongPopup.tsx";
+import { initDialogStatusState } from "../constants/dialog.ts";
 import { initSettingsState } from "../constants/settings.ts";
 import convoCtx from "../hooks/ctx/convoArrCtx.ts";
+import dialogStatusCtx from "../hooks/ctx/dialogStatusCtx.ts";
 import inputStatusCtx from "../hooks/ctx/inputStatusCtx.ts";
-import passwdDialogCtx from "../hooks/ctx/passwdDialogCtx.ts";
 import settingsCtx from "../hooks/ctx/settingsCtx.ts";
 import siderStatusCtx from "../hooks/ctx/siderStatusCtx.ts";
 import convoReducer from "../hooks/reducers/convoReducer.ts";
-import passwdReducer from "../hooks/reducers/passwdReducer.ts";
+import dialogReducer from "../hooks/reducers/dialogReducer.ts";
 import settingsReducer from "../hooks/reducers/settingsReducer.ts";
 import { ILayoutProps } from "../intf/props.ts";
 import Content from "./Content.tsx";
@@ -38,9 +39,9 @@ const Layout: (props: ILayoutProps) => JSX.Element = (
         initSettingsState
     );
     const [convoArr, setConvoArr] = useReducer(convoReducer, []);
-    const [passwdDialog, setPasswdDialog] = useReducer(
-        passwdReducer,
-        initPasswdState
+    const [dialogStatus, setDialogStatus] = useReducer(
+        dialogReducer,
+        initDialogStatusState
     );
 
     return (
@@ -48,16 +49,21 @@ const Layout: (props: ILayoutProps) => JSX.Element = (
             <inputStatusCtx.Provider value={{ inputStatus, setInputStatus }}>
                 <settingsCtx.Provider value={{ settings, setSettings }}>
                     <convoCtx.Provider value={{ convoArr, setConvoArr }}>
-                        <passwdDialogCtx.Provider
-                            value={{ passwdDialog, setPasswdDialog }}
+                        <dialogStatusCtx.Provider
+                            value={{ dialogStatus, setDialogStatus }}
                         >
                             <div
-                                class="grid"
-                                style={{
-                                    gridTemplateColumns: "auto 1fr",
-                                }}
+                                class={siderStatus ? "grid" : ""}
+                                style={
+                                    siderStatus
+                                        ? {
+                                              gridTemplateColumns: "15rem auto",
+                                          }
+                                        : ""
+                                }
                             >
-                                <Sider />
+                                {siderStatus ? <Sider /> : ""}
+
                                 <div
                                     class="bg-neu min-w-fit min-h-screen grid"
                                     style={{
@@ -68,13 +74,18 @@ const Layout: (props: ILayoutProps) => JSX.Element = (
                                     <Content />
                                     <Footer />
                                 </div>
+
                                 <PasswdInput
-                                    open={passwdDialog.openDialog}
+                                    open={dialogStatus.passwdInputStatus}
                                     apiKey={apiKey}
                                     encryptedPasswd={encryptedPasswd}
                                 />
+
+                                <WrongPopup
+                                    open={dialogStatus.wrongPopupStatus}
+                                />
                             </div>
-                        </passwdDialogCtx.Provider>
+                        </dialogStatusCtx.Provider>
                     </convoCtx.Provider>
                 </settingsCtx.Provider>
             </inputStatusCtx.Provider>

@@ -5,9 +5,9 @@ type ISettings = {
     maxTokens: number; // 最大字节数
 };
 
-type IPasswd = {
-    openDialog: boolean;
-    passwd: string;
+type IDialog = {
+    passwdInputStatus: boolean; // 密码输入弹出框
+    wrongPopupStatus: boolean; // 密码错误提示框
 };
 
-export type { ISettings, IPasswd };
+export type { ISettings, IDialog };

@@ -4,11 +4,11 @@ import {
     useCallback,
     useContext,
     useEffect,
+    useRef,
     useState,
 } from "preact/hooks";
 import Button from "../components/Button.tsx";
 import Divider from "../components/Divider.tsx";
-import Input from "../components/Input.tsx";
 import Loading from "../components/Loading.tsx";
 import { ConvoActionType } from "../constants/convo.ts";
 import convoArrCtx from "../hooks/ctx/convoArrCtx.ts";
@@ -18,6 +18,7 @@ import { ISettings } from "../intf/context.ts";
 import { ICardProps } from "../intf/props.ts";
 import OpenAI from "../utils/openai.ts";
 import tokenCalc from "../utils/tokenCalc.ts";
+import TextArea from "./TextArea.tsx";
 
 /**
  * TypingArea输入区
@@ -175,7 +176,7 @@ const TypingArea: () => JSX.Element = (): JSX.Element => {
                     right: false,
                     children: (
                         <div class="text-red-500">
-                            对话(含问和答)超出模型最大字节数限制，请点击右上角"刷新"按钮开启新会话。
+                            对话(含问和答)超出模型最大字节数限制，请点击右上角"刷新"按钮开启新的会话。
                         </div>
                     ),
                 },
@@ -217,7 +218,18 @@ const TypingArea: () => JSX.Element = (): JSX.Element => {
      * @param {Event} e
      */
     const enterListener: (e: Event) => void = (e: Event): void => {
-        if (e.keyCode === 13) clickSend();
+        if (e.keyCode === 13) setWord(word + "\n");
+        if (
+            e.keyCode === 13 &&
+            !e.shiftKey &&
+            !e.ctrlKey &&
+            !e.altKey &&
+            !e.metaKey
+        ) {
+            e.preventDefault();
+
+            clickSend();
+        }
     };
 
     return (
@@ -227,13 +239,13 @@ const TypingArea: () => JSX.Element = (): JSX.Element => {
                 gridArea: "bottomHalf",
             }}
         >
-            <Input
+            <TextArea
                 class="w-2/3"
                 value={word}
                 onInput={inputWord}
                 placeholder="为什么不问问神奇海螺呢？"
-                // maxLength={140}
                 autofocus
+                required
                 disabled={inputCtx.inputStatus}
                 onKeyDown={enterListener}
             />

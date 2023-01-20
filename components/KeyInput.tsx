@@ -2,10 +2,10 @@ import { JSX } from "preact";
 import { useContext } from "preact/hooks";
 import Button from "../components/Button.tsx";
 import Input from "../components/Input.tsx";
-import { PasswdActionType } from "../constants/passwd.ts";
-import passwdDialogCtx from "../hooks/ctx/passwdDialogCtx.ts";
+import { PasswdInputActionType } from "../constants/dialog.ts";
+import dialogStatusCtx from "../hooks/ctx/dialogStatusCtx.ts";
 import settingsCtx from "../hooks/ctx/settingsCtx.ts";
-import { IPasswd, ISettings } from "../intf/context.ts";
+import { IDialog, ISettings } from "../intf/context.ts";
 
 /**
  * KeyInput密钥输入框
@@ -29,17 +29,16 @@ const KeyInput: () => JSX.Element = (): JSX.Element => {
         localStorage.setItem("apiKey", e.target!.value);
     };
 
-    const passwdCtx: {
-        passwdDialog: IPasswd;
-        setPasswdDialog: (action: {
-            type: PasswdActionType;
-            payload?: Partial<IPasswd> | undefined;
-        }) => void;
-    } = useContext(passwdDialogCtx);
+    const dialogCtx: {
+        dialogStatus: IDialog;
+        setDialogStatus:
+            | ((action: { type: PasswdInputActionType }) => void)
+            | (() => never);
+    } = useContext(dialogStatusCtx);
 
     const useBuiltInKey: () => void = (): void => {
-        passwdCtx.setPasswdDialog({
-            type: PasswdActionType.Popup,
+        dialogCtx.setDialogStatus({
+            type: PasswdInputActionType.Popup,
         });
     };
 
@@ -54,7 +53,7 @@ const KeyInput: () => JSX.Element = (): JSX.Element => {
     return (
         <div class="m-2 p-2 rounded shadow-sider-inner text-center">
             <Input
-                class="mb-1 shadow-sider-inner bg-sider"
+                class="mb-1 w-48 shadow-sider-inner bg-sider"
                 type="password"
                 placeholder="API Key"
                 value={setCtx.settings.apiKey}

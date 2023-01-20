@@ -27,7 +27,7 @@ export default {
             fit: "fit-content",
         },
         maxHeight: {
-            "17/24": "70.833334vh",
+            "1/2": "50vh",
         },
     },
     plugins: {

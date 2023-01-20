@@ -28,7 +28,7 @@ const Content: () => JSX.Element = (): JSX.Element => {
                 <main
                     class="rounded shadow-neu w-full max-w-screen-md p-2 grid"
                     style={{
-                        gridTemplateRows: "1fr auto",
+                        gridTemplateRows: "auto 1fr",
                         gridTemplateAreas: "'topHalf' 'bottomHalf'",
                     }}
                 >

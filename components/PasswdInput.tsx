@@ -1,9 +1,12 @@
 import { JSX } from "preact";
 import { useContext, useEffect, useState } from "preact/hooks";
-import { PasswdActionType } from "../constants/passwd.ts";
-import passwdDialogCtx from "../hooks/ctx/passwdDialogCtx.ts";
+import {
+    PasswdInputActionType,
+    WrongPopupActionType,
+} from "../constants/dialog.ts";
+import dialogStatusCtx from "../hooks/ctx/dialogStatusCtx.ts";
 import settingsCtx from "../hooks/ctx/settingsCtx.ts";
-import { IPasswd, ISettings } from "../intf/context.ts";
+import { IDialog, ISettings } from "../intf/context.ts";
 import { IPasswdInputProps } from "../intf/props.ts";
 import encrypt from "../utils/encrypt.ts";
 import { infDebug } from "../utils/forbidDebugger.ts";
@@ -30,13 +33,12 @@ const PasswdInput: (props: IPasswdInputProps) => JSX.Element = (
     const { open, apiKey, encryptedPasswd } = props;
     const [passwd, setPasswd] = useState<string>("");
 
-    const passwdCtx: {
-        passwdDialog: IPasswd;
-        setPasswdDialog: (action: {
-            type: PasswdActionType;
-            payload?: Partial<IPasswd> | undefined;
+    const dialogCtx: {
+        dialogStatus: IDialog;
+        setDialogStatus: (action: {
+            type: PasswdInputActionType | WrongPopupActionType;
         }) => void;
-    } = useContext(passwdDialogCtx);
+    } = useContext(dialogStatusCtx);
     const setCtx: {
         settings: ISettings;
         setSettings: (action: Partial<ISettings>) => void;
@@ -51,29 +53,30 @@ const PasswdInput: (props: IPasswdInputProps) => JSX.Element = (
     };
 
     const clickCancel: () => void = (): void => {
-        passwdCtx.setPasswdDialog({
-            type: PasswdActionType.Cancel,
+        dialogCtx.setDialogStatus({
+            type: PasswdInputActionType.Close,
         });
 
         setPasswd("");
     };
 
     const clickSubmit: () => void = (): void => {
-        passwdCtx.setPasswdDialog({
-            type: PasswdActionType.Input,
-            payload: {
-                openDialog: false,
-                passwd: "",
-            },
+        dialogCtx.setDialogStatus({
+            type: PasswdInputActionType.Close,
         });
 
-        encrypt(passwd).then((res) => {
+        encrypt(passwd).then((res: string): void => {
             if (res === encryptedPasswd) {
                 setCtx.setSettings({
                     apiKey,
                 });
 
                 localStorage.setItem("apiKey", apiKey);
+            } else {
+                // 弹出密码错误提示框
+                dialogCtx.setDialogStatus({
+                    type: WrongPopupActionType.Popup,
+                });
             }
         });
 

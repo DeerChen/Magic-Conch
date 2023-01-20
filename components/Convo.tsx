@@ -20,7 +20,7 @@ const Convo: () => JSX.Element = (): JSX.Element => {
 
     return (
         <div
-            class="mb-1 py-4 shadow-neu-inner max-h-17/24 rounded overflow-y-scroll"
+            class="mb-1 py-4 shadow-neu-inner max-h-1/2 rounded overflow-y-scroll"
             style={{
                 gridArea: "topHalf",
                 minHeight: "50vh",
