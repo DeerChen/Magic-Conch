@@ -4,7 +4,7 @@ const encrypt: (passwd: string) => Promise<string> = async (
     passwd: string
 ): Promise<string> => {
     return toHashString(
-        await crypto.subtle.digest("BLAKE3", new TextEncoder().encode(passwd))
+        await crypto.subtle.digest("SHA-512", new TextEncoder().encode(passwd))
     );
 };
 

@@ -35,7 +35,7 @@ const Divider: (props: IDividerProps) => JSX.Element = (
                     {typeof children === "string" ? (
                         <div class="inline min-w-fit">{children}</div>
                     ) : (
-                        <>{children}</>
+                        <div class="whitespace-nowrap">{children}</div>
                     )}
 
                     <div

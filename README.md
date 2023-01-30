@@ -22,7 +22,7 @@
 
 ```bash
 docker build -f Dockerfile -t magic-conch . --no-cache
-docker run -d -p 8000:8000 --restart=always --name "magic-conch" magic-conch
+docker run -d -p 8000:8000 --restart=always --name "Magic-Conch" magic-conch
 ```
 
 ## Usage
@@ -30,7 +30,7 @@ docker run -d -p 8000:8000 --restart=always --name "magic-conch" magic-conch
 > 密钥需自行前往[OpenAI 后台](https://beta.openai.com/account/api-keys)注册申请，密码自定，用于保护内置密钥。
 
 ```bash
-deno task start --api="内置密钥" --passwd="密码"
+deno task start --apiKey="内置密钥" --passwd="密码"
 ```
 
 ## Maintainers
