@@ -8,7 +8,7 @@
     <img src="./static/logo.svg" width="125px" alt="Magic Conch"/>
 </center>
 
-一款基于 ChatGPT 的对话机器人。
+一款基于 GPT-3 的对话机器人。
 
 ## Features
 

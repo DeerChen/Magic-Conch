@@ -11,7 +11,7 @@ import Link from "./Link.tsx";
  */
 const SubTitle: () => JSX.Element = (): JSX.Element => (
     <>
-        一款基于<Link href="https://beta.openai.com">ChatGPT</Link>
+        一款基于<Link href="https://beta.openai.com">GPT-3</Link>
         的对话机器人
     </>
 );
