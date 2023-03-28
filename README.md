@@ -1,12 +1,10 @@
-# Magic Conch
+![Magic-Conch](https://socialify.git.ci/Senkita/Magic-Conch/image?description=1&font=KoHo&forks=1&issues=1&logo=https%3A%2F%2Fraw.githubusercontent.com%2FSenkita%2FMagic-Conch%2Fmain%2Fstatic%2Flogo.svg&name=1&pattern=Formal%20Invitation&pulls=1&stargazers=1&theme=Auto)
 
 ## Introduction
 
 > 海绵宝宝："为什么不问问神奇海螺呢？"
-
-<center>
-    <img src="./static/logo.svg" width="125px" alt="Magic Conch"/>
-</center>
+>
+> 预览：[神奇海螺](https://chat.senkita.cc)
 
 一款基于 GPT-3 的对话机器人。
 
@@ -20,9 +18,24 @@
 
 ## Installation
 
+> 先决：
+>
+> 1. 自行更新订阅至`/data/clash/config.yaml`
+> 2. 自行修改`Dockerfile`中的配置
+
 ```bash
-docker build -f Dockerfile -t magic-conch . --no-cache
-docker run -d -p 8000:8000 --restart=always --name "Magic-Conch" magic-conch
+# if you choose docker-compose
+docker compose build
+docker compose up
+
+# if you choose docker
+docker network create --driver=bridge vpn-network
+
+docker build . -f ./clash/Dockerfile -t clash --no-cache
+docker run -it -d -p 7890:7890 -v "/data/clash:/app/clash:Z" --restart=always --name="Clash" --net="vpn-network" clash
+
+docker build -f ./Dockerfile -t magic-conch . --no-cache
+docker run -d -p 8000:8000 --restart=always --name="Magic-Conch" --net="vpn-network" magic-conch
 ```
 
 ## Usage
@@ -35,7 +48,9 @@ deno task start --apiKey="内置密钥" --passwd="密码"
 
 ## Maintainers
 
-[Senkita](https://github.com/Senkita)
+<a href="https://github.com/Senkita/Magic-Conch/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Senkita/Magic-Conch" />
+</a>
 
 ## License
 

@@ -1,4 +1,4 @@
-import BrandGithub from "icons/tsx/brand-github.tsx";
+import BrandGithub from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/brand-github.tsx";
 import { JSX } from "preact";
 import { ICopyrightProps } from "../intf/props.ts";
 import Divider from "./Divider.tsx";
