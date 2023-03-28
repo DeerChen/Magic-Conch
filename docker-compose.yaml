@@ -1,0 +1,27 @@
+version: "3"
+services:
+    magic-conch:
+        context: .
+        dockerfile: ./Dockerfile
+        depends_on:
+            - clash
+        ports:
+            - "8000:8000"
+        restart: always
+        container_name: Magic-Conch
+        networks: 
+            - vpn-network
+    clash:
+        context: .
+        dockerfile: ./clash/Dockerfile
+        ports:
+            - "7890:7890"
+        volumes:
+            - "/data/clash:/app/clash:Z"
+        restart: always
+        container_name: Clash
+        networks:
+            - vpn-network
+networks:
+    vpn-network:
+        driver: bridge

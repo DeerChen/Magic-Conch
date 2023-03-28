@@ -18,7 +18,7 @@ const Link: (props: ILinkProps) => JSX.Element = (
     return (
         <a
             class={
-                "rounded m-1 p-1 text-green-400 shadow-neu-inner-sm text-center"
+                "rounded m-1 p-1 text-green-400 shadow-neu-inner-sm text-center cursor-pointer"
             }
             href={href}
             target="_blank"

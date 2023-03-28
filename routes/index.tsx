@@ -33,23 +33,26 @@ const handler: Handlers = {
 const Index: ({ data }: PageProps<IArgs>) => JSX.Element = ({
     data,
 }: PageProps<IArgs>): JSX.Element => {
-    if (!data || !data.apiKey || !data.passwd) {
+    if (data && data.apiKey && data.passwd) {
+        const encryptedPasswd: string = data.passwd;
+
         return (
             <>
-                <div>The command line arguments are incomplete.</div>
-                <div>命令行参数不完整。</div>
+                <Head>
+                    <title>神奇海螺 🐚</title>
+                </Head>
+                <Layout
+                    apiKey={data.apiKey}
+                    encryptedPasswd={encryptedPasswd}
+                />
             </>
         );
     }
 
-    const encryptedPasswd: string = data.passwd;
-
     return (
         <>
-            <Head>
-                <title>神奇海螺 🐚</title>
-            </Head>
-            <Layout apiKey={data.apiKey} encryptedPasswd={encryptedPasswd} />
+            <div>The command line arguments are incomplete.</div>
+            <div>命令行参数不完整。</div>
         </>
     );
 };

@@ -1,0 +1,6 @@
+deb http://mirrors.tencentyun.com/debian/ bullseye main non-free contrib
+deb http://mirrors.tencentyun.com/debian/ bullseye-updates main non-free contrib
+deb http://mirrors.tencentyun.com/debian/ bullseye-backports main non-free contrib
+#deb-src http://mirrors.tencentyun.com/debian/ bullseye main non-free contrib
+#deb-src http://mirrors.tencentyun.com/debian/ bullseye-updates main non-free contrib
+#deb-src http://mirrors.tencentyun.com/debian/ bullseye-backports main non-free contrib
