@@ -6,6 +6,7 @@ import { PasswdActionType } from "../constants/passwd.ts";
 import passwdDialogCtx from "../hooks/ctx/passwdDialogCtx.ts";
 import settingsCtx from "../hooks/ctx/settingsCtx.ts";
 import { IPasswd, ISettings } from "../intf/context.ts";
+import { fetchDelApiKey, fetchSetApiKey } from "../utils/fetchApi.ts";
 
 /**
  * KeyInput密钥输入框
@@ -21,12 +22,15 @@ const KeyInput: () => JSX.Element = (): JSX.Element => {
         setSettings: (action: Partial<ISettings>) => void;
     } = useContext(settingsCtx);
 
-    const inputKey: (e: Event) => void = (e: Event): void => {
+    const inputKey: (e: Event) => Promise<void> = async (
+        e: Event
+    ): Promise<void> => {
         setCtx.setSettings({
             apiKey: e.target!.value,
         });
 
-        localStorage.setItem("apiKey", e.target!.value);
+        // localStorage.setItem("apiKey", e.target!.value);
+        await fetchSetApiKey(e.target!.value);
     };
 
     const passwdCtx: {
@@ -43,12 +47,13 @@ const KeyInput: () => JSX.Element = (): JSX.Element => {
         });
     };
 
-    const clearKey: () => void = (): void => {
+    const clearKey: () => Promise<void> = async () => {
         setCtx.setSettings({
             apiKey: "",
         });
 
-        localStorage.removeItem("apiKey");
+        // localStorage.removeItem("apiKey");
+        await fetchDelApiKey();
     };
 
     return (

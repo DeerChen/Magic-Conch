@@ -2,7 +2,6 @@ import { JSX } from "preact";
 import { useReducer, useState } from "preact/hooks";
 import PasswdInput from "../components/PasswdInput.tsx";
 import { initPasswdState } from "../constants/passwd.ts";
-import { initSettingsState } from "../constants/settings.ts";
 import convoCtx from "../hooks/ctx/convoArrCtx.ts";
 import inputStatusCtx from "../hooks/ctx/inputStatusCtx.ts";
 import passwdDialogCtx from "../hooks/ctx/passwdDialogCtx.ts";
@@ -29,7 +28,7 @@ import Sider from "./Sider.tsx";
 const Layout: (props: ILayoutProps) => JSX.Element = (
     props: ILayoutProps
 ): JSX.Element => {
-    const { apiKey, encryptedPasswd } = props;
+    const { apiKey, encryptedPasswd, initSettingsState } = props;
 
     const [siderStatus, setSiderStatus] = useState<boolean>(false);
     const [inputStatus, setInputStatus] = useState<boolean>(false);

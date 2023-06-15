@@ -1,6 +1,7 @@
 {
+  "lock": false,
   "tasks": {
-    "start": "deno run --allow-net -A --watch=static/,routes/ dev.ts"
+    "start": "deno run --allow-net -A --unstable --watch=static/,routes/ dev.ts"
   },
   "importMap": "./import_map.json",
   "compilerOptions": {

@@ -2,6 +2,7 @@ import { JSX } from "preact";
 import { useContext } from "preact/hooks";
 import settingsCtx from "../hooks/ctx/settingsCtx.ts";
 import { ISettings } from "../intf/context.ts";
+import { fetchSetApiKey } from "../utils/fetchApi.ts";
 
 /**
  * InputRange程度选择
@@ -17,12 +18,15 @@ const InputRange: () => JSX.Element = (): JSX.Element => {
         setSettings: (action: Partial<ISettings>) => void;
     } = useContext(settingsCtx);
 
-    const handleSlide: (e: Event) => void = (e: Event): void => {
+    const handleSlide: (e: Event) => Promise<void> = async (
+        e: Event
+    ): Promise<void> => {
         setCtx.setSettings({
             temp: parseFloat(e.target!.value),
         });
 
-        localStorage.setItem("temperature", e.target!.value);
+        // localStorage.setItem("temperature", e.target!.value);
+        await fetchSetApiKey(e.target!.value);
     };
 
     return (

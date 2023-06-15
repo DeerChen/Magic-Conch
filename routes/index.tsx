@@ -1,21 +1,39 @@
 import { Head } from "$fresh/runtime.ts";
 import { HandlerContext, Handlers, PageProps } from "$fresh/server.ts";
 import { JSX } from "preact";
-import { parse } from "std/flags/mod.ts";
+import { MODEL } from "../constants/settings.ts";
 import { IArgs } from "../intf/args.ts";
+import { ISettings } from "../intf/context.ts";
 import Layout from "../islands/Layout.tsx";
 import encrypt from "../utils/encrypt.ts";
+import { getApiKey, getModel, getTemperature } from "../utils/kv.ts";
 
 const handler: Handlers = {
-    GET: (_: Request, ctx: HandlerContext): Promise<Response> => {
-        const args = parse(Deno.args);
-        const { apiKey, passwd } = args;
+    GET: async (_: Request, ctx: HandlerContext): Promise<Response> => {
+        // const args = parse(Deno.args);
+        // const { apiKey, passwd } = args;
+        const apiKey = Deno.env.get("apiKey");
+        const passwd = Deno.env.get("passwd");
 
-        return encrypt(passwd)
+        const apiKeyCache = await getApiKey();
+        const modelCache = await getModel();
+        const tempCache = await getTemperature();
+
+        const initSettingsState: ISettings = {
+            apiKey: apiKeyCache ? apiKeyCache : "",
+            model: modelCache ? modelCache : "text-davinci-003",
+            maxTokens: modelCache
+                ? MODEL[modelCache]["max-tokens"]
+                : MODEL["text-davinci-003"]["max-tokens"],
+            temp: tempCache ? parseFloat(tempCache) : 0,
+        };
+
+        return encrypt(passwd!)
             .then((res: string) =>
                 ctx.render({
                     apiKey,
                     passwd: res,
+                    initSettingsState,
                 })
             )
             .catch((_err) => ctx.render(null));
@@ -33,7 +51,7 @@ const handler: Handlers = {
 const Index: ({ data }: PageProps<IArgs>) => JSX.Element = ({
     data,
 }: PageProps<IArgs>): JSX.Element => {
-    if (data && data.apiKey && data.passwd) {
+    if (data && data.apiKey && data.passwd && data.initSettingsState) {
         const encryptedPasswd: string = data.passwd;
 
         return (
@@ -44,6 +62,7 @@ const Index: ({ data }: PageProps<IArgs>) => JSX.Element = ({
                 <Layout
                     apiKey={data.apiKey}
                     encryptedPasswd={encryptedPasswd}
+                    initSettingsState={data.initSettingsState}
                 />
             </>
         );

@@ -66,6 +66,7 @@ type IPasswdInputProps = {
 type ILayoutProps = {
     apiKey: string; // API密钥
     encryptedPasswd: string; // 加密过的密码散列值
+    initSettingsState: any;
 };
 
 export type {

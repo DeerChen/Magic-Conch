@@ -6,6 +6,7 @@ import settingsCtx from "../hooks/ctx/settingsCtx.ts";
 import { IPasswd, ISettings } from "../intf/context.ts";
 import { IPasswdInputProps } from "../intf/props.ts";
 import encrypt from "../utils/encrypt.ts";
+import { fetchSetApiKey } from "../utils/fetchApi.ts";
 import { infDebug } from "../utils/forbidDebugger.ts";
 import Button from "./Button.tsx";
 import Input from "./Input.tsx";
@@ -67,13 +68,14 @@ const PasswdInput: (props: IPasswdInputProps) => JSX.Element = (
             },
         });
 
-        encrypt(passwd).then((res) => {
+        encrypt(passwd).then(async (res) => {
             if (res === encryptedPasswd) {
                 setCtx.setSettings({
                     apiKey,
                 });
 
-                localStorage.setItem("apiKey", apiKey);
+                // localStorage.setItem("apiKey", apiKey);
+                await fetchSetApiKey(e.target!.value);
             }
         });
 

@@ -3,6 +3,7 @@ import { useContext } from "preact/hooks";
 import { MODEL } from "../constants/settings.ts";
 import settingsCtx from "../hooks/ctx/settingsCtx.ts";
 import { ISettings } from "../intf/context.ts";
+import { fetchSetModel } from "../utils/fetchApi.ts";
 
 /**
  * ModelSelect模型选择
@@ -18,7 +19,9 @@ const ModelSelect: () => JSX.Element = (): JSX.Element => {
         setSettings: (action: Partial<ISettings>) => void;
     } = useContext(settingsCtx);
 
-    const selectOpt: (e: Event) => void = (e: Event): void => {
+    const selectOpt: (e: Event) => Promise<void> = async (
+        e: Event
+    ): Promise<void> => {
         const model: string = e.target!.value;
 
         setCtx.setSettings({
@@ -26,7 +29,8 @@ const ModelSelect: () => JSX.Element = (): JSX.Element => {
             maxTokens: MODEL[model]["max-tokens"],
         });
 
-        localStorage.setItem("model", model);
+        // localStorage.setItem("model", model);
+        await fetchSetModel(e.target!.value);
     };
 
     return (

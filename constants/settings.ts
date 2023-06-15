@@ -1,4 +1,3 @@
-import { ISettings } from "../intf/context.ts";
 import { IModel } from "../intf/settings.ts";
 
 const MODEL: IModel = {
@@ -28,17 +27,8 @@ const MODEL: IModel = {
     },
 };
 
-const apiKeyCache = localStorage.getItem("apiKey");
-const modelCache = localStorage.getItem("model");
-const tempCache = localStorage.getItem("temperature");
+// const apiKeyCache = localStorage.getItem("apiKey");
+// const modelCache = localStorage.getItem("model");
+// const tempCache = localStorage.getItem("temperature");
 
-const initSettingsState: ISettings = {
-    apiKey: apiKeyCache ? apiKeyCache : "",
-    model: modelCache ? modelCache : "text-davinci-003",
-    maxTokens: modelCache
-        ? MODEL[modelCache]["max-tokens"]
-        : MODEL["text-davinci-003"]["max-tokens"],
-    temp: tempCache ? parseFloat(tempCache) : 0,
-};
-
-export { initSettingsState, MODEL };
+export { MODEL };
