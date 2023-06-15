@@ -4,7 +4,7 @@
 
 > 海绵宝宝："为什么不问问神奇海螺呢？"
 >
-> 预览：[神奇海螺](https://chat.senkita.cc)
+> 预览：[神奇海螺](https://magic-conch.deno.dev)
 
 一款基于 GPT-3 的对话机器人。
 
@@ -15,6 +15,7 @@
 3. 模拟 A/B 会话场景
 4. 支持切换 model 和 temperature 参数
 5. 支持内置密钥，方便个人使用
+6. 使用 Deno.KV，适应[Deno Deploy](https://deno.dev)部署
 
 ## Installation
 
